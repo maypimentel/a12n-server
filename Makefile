@@ -13,7 +13,7 @@ docker-build: build
 	docker build -t $(DOCKER_IMAGE_NAME) .
 
 docker-run:
-	docker run -it --rm --name $(DOCKER_IMAGE_NAME)-01 $(DOCKER_IMAGE_NAME)
+	docker run -it --rm --env-file .env -p 8531:8531 --name $(DOCKER_IMAGE_NAME)-01 $(DOCKER_IMAGE_NAME)
 
 test:
 	npx nyc mocha
